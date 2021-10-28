@@ -1,0 +1,61 @@
+.vueinput-component {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--vueinput-component, #fff);
+
+    &[data-has-error="true"] .field{
+        background-color: #F8D7DC;
+    }
+    &[data-has-error="true"] .field-label{
+      color: #b92a45;
+    }
+
+    &[data-has-content="true"] .field-label {
+      font-size: 12px;
+      transform: translateY(-1.2em);
+    }
+}
+
+.field {
+  position: relative;
+  min-height: 3rem;
+  pointer-events: none;
+  display: block;
+  background-color: #f4f4f4;
+  &-label{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.125rem 1.25rem 0;
+    display: flex;
+    align-items: center;
+    color: #666666;
+    overflow: visible;
+    white-space: nowrap;
+    font-weight: 400;
+    line-height: 1;
+    width: 100%;
+    z-index: 1;
+    transition: all 200ms;
+  }
+  &-input{
+    color:  #121212;
+    width: 100%;
+    padding: 1.6rem 1.25rem 1.25rem 1.25rem;
+    line-height: 1.5;
+    position: absolute;
+    top: 0;
+    left:  0;
+    bottom: 0;
+    height: 100%;
+    outline: 0;
+    border: none;
+    font: inherit;
+    background-color: transparent;
+    pointer-events: auto;
+    box-sizing: border-box;
+  }
+}
+
