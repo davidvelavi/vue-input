@@ -1,20 +1,20 @@
 .vueinput-component {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: var(--vueinput-component, #fff);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--vueinput-component, #fff);
 
-    &[data-has-error="true"] .field{
-        background-color: #F8D7DC;
-    }
-    &[data-has-error="true"] .field-label{
-      color: #b92a45;
-    }
+  &[data-has-error="true"] .field {
+    background-color: #f8d7dc;
+  }
+  &[data-has-error="true"] .field-label {
+    color: #b92a45;
+  }
 
-    &[data-has-content="true"] .field-label {
-      font-size: 12px;
-      transform: translateY(-1.2em);
-    }
+  &[data-has-content="true"] .field-label {
+    font-size: 12px;
+    transform: translateY(-1.2em);
+  }
 }
 
 .field {
@@ -23,7 +23,7 @@
   pointer-events: none;
   display: block;
   background-color: #f4f4f4;
-  &-label{
+  &-label {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -40,14 +40,14 @@
     z-index: 1;
     transition: all 200ms;
   }
-  &-input{
-    color:  #121212;
+  &-input {
+    color: #121212;
     width: 100%;
     padding: 1.6rem 1.25rem 1.25rem 1.25rem;
     line-height: 1.5;
     position: absolute;
     top: 0;
-    left:  0;
+    left: 0;
     bottom: 0;
     height: 100%;
     outline: 0;
@@ -58,4 +58,3 @@
     box-sizing: border-box;
   }
 }
-

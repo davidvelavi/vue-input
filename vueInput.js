@@ -30,6 +30,7 @@ export default {
       type: Boolean,
       default: false,
     },
+    name: String,
     maxLength: String,
     pattern: String,
     required: Boolean
@@ -37,7 +38,7 @@ export default {
   data(){
     return {
       inputValue: this.value,
-      isValid : this.valid
+      isValid: this.valid
     }
   },
   computed:{
@@ -45,10 +46,15 @@ export default {
       return Boolean(this.inputValue)
     }
   },
+  watch:{
+    valid( value ){
+      this.isValid = Boolean(value);
+    }
+  },
   methods:{
     _onInput({target}){
       this.inputValue = target.value;
-      this.$emit('inputField')
+      this.$emit('inputField', {name: this.name, value: this.inputValue})
     },
     _onFocus(){
       this.$emit('inputFieldFocus')

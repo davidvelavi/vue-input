@@ -3,6 +3,7 @@ div.vueinput-component(:data-has-error='!isValid', :data-has-content='hasContent
    label.field
       span.field-label {{label}}
       input(
+         :name='name'
          :value='inputValue'
          :placeholder='placeholder'
          :pattern='pattern'
