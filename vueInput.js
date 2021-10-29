@@ -1,6 +1,6 @@
 export default {
   name: 'vueInput',
-  emits:['inputField', 'inputFieldFocus', 'inputFieldBlur'],
+  emits:['onInvalidInputField', 'onInputField', 'onFocusInputField', 'onBlurInputField'],
   props:{
     value: {
       type: String,
@@ -30,10 +30,13 @@ export default {
       type: Boolean,
       default: false,
     },
+    required: {
+      type: Boolean,
+      default: false
+    },
     name: String,
     maxLength: String,
-    pattern: String,
-    required: Boolean
+    pattern: String
   },
   data(){
     return {
@@ -49,18 +52,34 @@ export default {
   watch:{
     valid( value ){
       this.isValid = Boolean(value);
+    },
+    inputValue(newValue){
+      let valid = true;
+      if(this.required){
+       valid = this._isRequired(newValue);
+      }
+      this.isValid  = valid;
+    },
+    isValid(isValid){
+      this._onInvalidInput(isValid);
     }
   },
   methods:{
+    _isRequired(inputValue){
+      return Boolean(inputValue);
+    },
+    _onInvalidInput(inputValue){
+      this.$emit('onInvalidInputField', {name: this.name, value:isValid})
+    },
     _onInput({target}){
       this.inputValue = target.value;
-      this.$emit('inputField', {name: this.name, value: this.inputValue})
+      this.$emit('onInputField', {name: this.name, value: this.inputValue})
     },
     _onFocus(){
-      this.$emit('inputFieldFocus')
+      this.$emit('onFocusInputField')
     },
     _onBlur(){
-      this.$emit('inputFieldBlur')
+      this.$emit('onBlurInputField')
     },
   }
 };

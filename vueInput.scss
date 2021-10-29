@@ -6,6 +6,7 @@
 
   &[data-has-error="true"] .field {
     background-color: #f8d7dc;
+    border-color: #b92a45;
   }
   &[data-has-error="true"] .field-label {
     color: #b92a45;
@@ -23,6 +24,7 @@
   pointer-events: none;
   display: block;
   background-color: #f4f4f4;
+  border-bottom: 1px solid #666;
   &-label {
     position: absolute;
     top: 0;
